@@ -63,3 +63,11 @@ The README is the quick-start guide. Keep longer design notes in `docs/`. To use
 ## License
 
 MIT — see [LICENSE](LICENSE).
+
+
+## Project Wiki
+
+- [Wiki home](docs/wiki/Home.md)
+- [Architecture and deployment](docs/wiki/Architecture.md)
+
+The repository keeps a version-controlled wiki source under `docs/wiki/`.
