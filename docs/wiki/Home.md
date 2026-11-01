@@ -12,7 +12,7 @@ Open `index.html` for the browser companion. A valid character name is non-empty
 ## Key repository references
 
 - [Source repository](https://github.com/aKmsdfhjb/python-rpg_character-generator)
-- [README](../../README.md)
+- [README](https://github.com/aKmsdfhjb/python-rpg_character-generator#readme)
 - [Architecture](Architecture.md)
 
 ## Scope and limitations
