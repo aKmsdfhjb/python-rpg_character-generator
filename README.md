@@ -1,50 +1,65 @@
-# 🛡️ RPG Character Validator & Sheet Generator
+# RPG Character Validator & Sheet Generator
 
-A robust Python utility designed for tabletop RPG systems to handle character creation. This script validates user input for character names and attributes, ensuring game balance through strict point-allocation rules and providing a visual character sheet output.
+A Python utility for validating a tabletop RPG character and generating a compact stat sheet. This repository now includes a browser-based companion that follows the same validation rules.
 
-## 🚀 Features
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white)
+![Frontend](https://img.shields.io/badge/Frontend-Vanilla%20JS-f0db4f?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-171715?style=flat-square)
 
-* **String Validation**: Enforces naming conventions (no spaces, max 10 characters, non-empty).
-* **Attribute Constraints**: Validates that stats (Strength, Intelligence, Charisma) are integers within the 1-4 range.
-* **Point-Buy Balance**: Automatically calculates total points to ensure the character starts with exactly 7 points.
-* **Visual Stat Bars**: Generates a clean, 10-point visual representation using Unicode symbols (● and ○).
+## Live interface
 
-## 🛠️ Installation & Usage
+After enabling **Settings → Pages → Build and deployment → GitHub Actions**, visit:
 
-1. **Clone the repository**:
-   ```bash
-   git clone (https://github.com/aKmsdfhjb/python-rpg_character-generator.git)
-   
-Run the script: You can import the function into your own project:
+[Open the character generator](https://aKmsdfhjb.github.io/python-rpg_character-generator/)
 
-Python
+## Rules
 
+- Character name must be a non-empty string, no more than 10 characters, with no spaces.
+- Strength, Intelligence and Charisma must each be integers from 1 to 4.
+- The three attributes must total exactly 7 points.
+- A successful character sheet renders ten-slot visual stat bars.
+
+## Flow
+
+```mermaid
+flowchart TD
+ A[Enter character name] --> B[Enter STR / INT / CHA]
+ B --> C[Validate name]
+ C --> D[Validate each stat: integer 1–4]
+ D --> E{Total equals 7?}
+ E -->|No| F[Show validation message]
+ E -->|Yes| G[Build stat bars]
+ G --> H[Render character sheet]
+```
+
+## Run locally
+
+Python:
+
+```bash
+python main.py
+```
+
+Import the reusable function:
+
+```python
 from main import create_character
 
-# Generate a character
-# Example: Name 'Ren', Strength 4, Intelligence 2, Charisma 1
 print(create_character("Ren", 4, 2, 1))
-📊 Example Output
-If the input is valid, the function returns a formatted sheet:
+```
 
-Plaintext
+Browser interface: open `index.html` in a modern browser.
 
-Ren
-STR ●●●●○○○○○○
-INT ●●○○○○○○○○
-CHA ●○○○○○○○○○
-If the input is invalid (e.g., name too long), it returns a specific error: "The character name is too long."
+## Project structure
 
-🧪 Technical Implementation
-The project demonstrates several core Python concepts:
+- `main.py` — validation and character-sheet generation.
+- `index.html` — interactive browser companion.
+- `.github/workflows/pages.yml` — GitHub Pages deployment.
 
-Input Sanitization: Using isinstance() for type checking.
+## Documentation and Wiki
 
-Logic Gates: Sequential if statements for error prioritizing.
+The README is the quick-start guide. Keep longer design notes in `docs/`. To use GitHub's separate Wiki tab, enable Wikis in repository settings and create the Wiki pages there.
 
-String Arithmetic: Using * multipliers to generate visual bars dynamically.
+## License
 
-F-Strings: Clean multi-line string formatting for output.
-
-📜 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+MIT — see [LICENSE](LICENSE).
